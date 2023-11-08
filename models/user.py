@@ -7,7 +7,3 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
-    def all(self):
-        """Returns a list of all User instances"""
-        return list(models.storage.all(User).values())
