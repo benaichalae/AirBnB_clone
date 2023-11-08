@@ -10,4 +10,4 @@ class Review(BaseModel):
     text = ""
 
     def all(self):
-        return list(models.storage.all(User).values())
+        return list(models.storage.all(Review).values())

@@ -18,4 +18,4 @@ class Place(BaseModel):
     amenity_ids = []
 
     def all(self):
-        return list(models.storage.all(User).values())
+        return list(models.storage.all(Place).values())

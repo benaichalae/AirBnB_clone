@@ -9,4 +9,4 @@ class City(BaseModel):
     name = ""
 
     def all(self):
-        return list(models.storage.all(User).values())
+        return list(models.storage.all(City).values())
