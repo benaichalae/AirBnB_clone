@@ -8,3 +8,6 @@ class Review(BaseModel):
     place_id = ""
     user_id = ""
     text = ""
+
+    def all(self):
+        return list(models.storage.all(User).values())

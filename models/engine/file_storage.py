@@ -29,21 +29,22 @@ class FileStorage:
         from models.review import Review
 
         classes = {
-                    'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'State': State, 'City': City, 'Amenity': Amenity,
-                    'Review': Review
-                  }
+                'BaseModel': BaseModel,
+                'User': User,
+                'Place': Place,
+                'State': State,
+                'City': City,
+                'Amenity': Amenity,
+                'Review': Review
+                }
         try:
+            data = {}
             with open(FileStorage.__file_path, 'r') as file:
                 data = json.load(file)
                 for key, value in data.items():
-                    class_name = value.get('__class__')
-                    if class_name == 'BaseModel':
-                        obj = BaseModel(**value)
-                    elif class_name == 'User':
-                        obj = User(**value)
-                    else:
-                        continue
-                    self.new(obj)
+                    class_name = value['__class__']
+                    if class_name in classes:
+                        self.all()[key] = classes[class_name](**value)
         except FileNotFoundError:
             pass
+
