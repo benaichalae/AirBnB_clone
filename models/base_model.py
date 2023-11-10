@@ -4,6 +4,7 @@ import models
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     """A base class for all hbnb models"""
     def __init__(self, *args, **kwargs):
