@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Command interpreter for HBNB project"""
-
 import cmd
 from models import storage
 from models.base_model import BaseModel
@@ -11,7 +10,10 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
+    """ Contains the functionality for the HBNB console"""
+
     prompt = "(hbnb) "
 
     classes = {
@@ -99,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
                 print_list.append(str(v))
 
         print(print_list)
-    
+
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
         args = arg.split()
@@ -129,6 +131,7 @@ class HBNBCommand(cmd.Cmd):
                     instance.save()
                 except AttributeError:
                     print("** attribute name doesn't exist **")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
